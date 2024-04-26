@@ -3,7 +3,7 @@ export interface MarkerInterface {
     lat: number;
     lng: number;
   };
-  timestamp: number;
+  timestamp: string;
   id: number;
   next?: MarkerInterface;
 }

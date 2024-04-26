@@ -19,6 +19,10 @@ const Map: React.FC = () => {
 
   const mapRef = useRef<MapRef>(null);
 
+  const date = new Date();
+
+  console.log(date.toString())
+
   useEffect(() => {
     getMarkers()
       .then((markers) => {
@@ -35,7 +39,9 @@ const Map: React.FC = () => {
   }, [markers]);
 
   const handleMapClick = ({ lat, lng }: { lat: number, lng: number }) => {
-    const newMarker = { location: {lat, lng }, id: generateUniqueID(), timestamp: Date.now()};
+    const date = new Date();
+
+    const newMarker = { location: {lat, lng }, timestamp: date.toString(), id: generateUniqueID()};
 
     if (markers.length > 0) {
       const lastMarker = markers[markers.length - 1];
