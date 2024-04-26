@@ -1,30 +1,23 @@
-# React + TypeScript + Vite
+# Проект "Map"
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Проект "Map" - це програма для роботи з картою, де ви можете розміщувати маркери та видаляти їх за допомогою правої кнопки мишки. Використовує Firebase для збереження даних.
 
-Currently, two official plugins are available:
+## Особливості
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Розміщення маркерів на карті.
+- Видалення маркерів за допомогою правої кнопки мишки.
 
-## Expanding the ESLint configuration
+## Вимоги
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+Перед використанням програми переконайтеся, що ви маєте наступне програмне забезпечення:
 
-- Configure the top-level `parserOptions` property like this:
+- Веб-браузер, сумісний з JavaScript.
+- Інтернет-підключення для завантаження необхідних ресурсів.
 
-```js
-export default {
-  // other rules...
-  parserOptions: {
-    ecmaVersion: 'latest',
-    sourceType: 'module',
-    project: ['./tsconfig.json', './tsconfig.node.json'],
-    tsconfigRootDir: __dirname,
-  },
-}
-```
+## Встановлення
+   1. Клонуйте репозиторій.
+   2. Увійдіть у папку проекта і запустіть у терміналі команду ```npm install```
+   3. Щоб запустити проект запусть у терміналі команду ```npm start```
 
-- Replace `plugin:@typescript-eslint/recommended` to `plugin:@typescript-eslint/recommended-type-checked` or `plugin:@typescript-eslint/strict-type-checked`
-- Optionally add `plugin:@typescript-eslint/stylistic-type-checked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and add `plugin:react/recommended` & `plugin:react/jsx-runtime` to the `extends` list
+## Автор
+[Ruslan Voshchylo](https://github.com/rvoshchylo)
