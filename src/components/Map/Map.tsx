@@ -1,8 +1,8 @@
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useEffect, useState } from 'react';
 import GoogleMap from 'react-map-gl';
-import { Layer, MarkerDragEvent, Source } from 'react-map-gl';
+import { Layer, Source } from 'react-map-gl';
 import { MarkerInterface } from '../../types/Marker';
-import mapboxgl, { LngLat } from 'mapbox-gl';
+import mapboxgl from 'mapbox-gl';
 import { clusterLayer, clusterCountLayer, unclusteredPointLayer, unclusteredPointTextLayer } from './layers';
 import { FeatureCollection, GeoJsonProperties, Geometry } from 'geojson';
 import styles from './Map.module.css';
@@ -13,7 +13,7 @@ import { updateMarkers } from '../../utils/updateMarkers';
 const Map: React.FC = () => {
   const [markers, setMarkers] = useState<MarkerInterface[]>([]);
   const [isLoaded, setIsLoaded] = useState(false); 
-  const [, logEvents] = useState<Record<string, LngLat>>({});
+  // const [, logEvents] = useState<Record<string, LngLat>>({});
   console.log(markers);
 
   useEffect(() => {
@@ -53,31 +53,31 @@ const Map: React.FC = () => {
     }))
   };
 
-  const handleRightClick = (event: React.MouseEvent) => {
-    event.preventDefault();
-    const markersCopy = [...markers];
-    const index = Number(event.currentTarget.textContent) - 1;
-    markersCopy.splice(index, 1);
-    setMarkers(markersCopy);
-  };
+  // const handleRightClick = (event: React.MouseEvent) => {
+  //   event.preventDefault();
+  //   const markersCopy = [...markers];
+  //   const index = Number(event.currentTarget.textContent) - 1;
+  //   markersCopy.splice(index, 1);
+  //   setMarkers(markersCopy);
+  // };
 
-  const moveMarker = (event: MarkerDragEvent, markerId: number) => {
-    const markersCopy = [...markers];
-    const markerIndex = markersCopy.findIndex(marker => marker.id === markerId);
+  // const moveMarker = (event: MarkerDragEvent, markerId: number) => {
+  //   const markersCopy = [...markers];
+  //   const markerIndex = markersCopy.findIndex(marker => marker.id === markerId);
 
-    markersCopy[markerIndex] = { id: markerId, lat: event.lngLat.lat, lng: event.lngLat.lng };
-    setMarkers(markersCopy);
-  };
+  //   markersCopy[markerIndex] = { id: markerId, lat: event.lngLat.lat, lng: event.lngLat.lng };
+  //   setMarkers(markersCopy);
+  // };
 
-  const onMarkerDrag = useCallback((event: MarkerDragEvent, markerId: number) => {
-    logEvents(_events => ({ ..._events, onDrag: new LngLat(event.lngLat.lng, event.lngLat.lat) }));
-    moveMarker(event, markerId);
-  }, [markers]);
+  // const onMarkerDrag = useCallback((event: MarkerDragEvent, markerId: number) => {
+  //   logEvents(_events => ({ ..._events, onDrag: new LngLat(event.lngLat.lng, event.lngLat.lat) }));
+  //   moveMarker(event, markerId);
+  // }, [markers]);
 
-  const onMarkerDragEnd = useCallback((event: MarkerDragEvent, markerId: number) => {
-    logEvents(_events => ({ ..._events, onDragEnd: new LngLat(event.lngLat.lng, event.lngLat.lat) }));
-    moveMarker(event, markerId);
-  }, [markers]);
+  // const onMarkerDragEnd = useCallback((event: MarkerDragEvent, markerId: number) => {
+  //   logEvents(_events => ({ ..._events, onDragEnd: new LngLat(event.lngLat.lng, event.lngLat.lat) }));
+  //   moveMarker(event, markerId);
+  // }, [markers]);
 
   return (
     <div className={styles.container}>
