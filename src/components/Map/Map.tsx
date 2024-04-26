@@ -35,7 +35,7 @@ const Map: React.FC = () => {
   }, [markers]);
 
   const handleMapClick = ({ lat, lng }: { lat: number, lng: number }) => {
-    const newMarker = { id: generateUniqueID(), lat, lng };
+    const newMarker = { location: {lat, lng }, id: generateUniqueID(), timestamp: Date.now()};
 
     if (markers.length > 0) {
       const lastMarker = markers[markers.length - 1];
@@ -51,7 +51,7 @@ const Map: React.FC = () => {
       properties: { markerId: marker.id, index: index + 1 },
       geometry: {
         type: 'Point',
-        coordinates: [marker.lng, marker.lat]
+        coordinates: [marker.location.lng, marker.location.lat]
       }
     }))
   };

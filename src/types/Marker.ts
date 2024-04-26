@@ -1,6 +1,9 @@
 export interface MarkerInterface {
+  location: {
+    lat: number;
+    lng: number;
+  };
+  timestamp: number;
   id: number;
-  lat: number;
-  lng: number;
   next?: MarkerInterface;
 }
